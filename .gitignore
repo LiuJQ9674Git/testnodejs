@@ -1,0 +1,5 @@
+/nodejs-demo/node_modules
+/nodejs-demo/dist
+/nodejs-demo/.tmp
+/nodejs-demo/.sass-cache
+/nodejs-demo/bower_components
