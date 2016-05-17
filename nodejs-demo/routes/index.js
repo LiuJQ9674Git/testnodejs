@@ -1,17 +1,14 @@
-/*
+
 var express = require('express');
 var router = express.Router();
 
-
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
-*/
-
 exports.index = function(req, res){
-  res.render('index', { title: 'Index' });
+  if (!req.session.user) {
+    //req.session.error='已登陆';
+    return res.redirect('login');
+  }else{
+    res.render('index', { title: 'Index' });
+  }
 };
 
 exports.login = function(req, res){
@@ -40,9 +37,6 @@ exports.logout = function(req, res){
 };
 
 exports.home = function(req, res){
-  var user={
-    username:'admin',
-    password:'admin'
-  }
-  res.render('home', { title: 'Home',user: user});
+  res.render('home', { title: 'Home'});
+
 };
